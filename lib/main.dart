@@ -4,6 +4,7 @@ import 'services/mock_data_service.dart';
 import 'services/pi_connection_service.dart';
 import 'screens/connection_screen.dart';
 import 'screens/dashboard_screen.dart';
+import 'screens/temperature_screen.dart';
 
 // ─────────────────────────────────────────
 // ONE FLAG — flip to false when Pi is ready
@@ -60,6 +61,7 @@ class _AppShellState extends State<AppShell> {
 
   static const _screens = [
     DashboardScreen(),
+    TemperatureScreen(),
     ConnectionScreen(),
   ];
 
@@ -73,11 +75,18 @@ class _AppShellState extends State<AppShell> {
         backgroundColor: Colors.white,
         elevation: 0,
         indicatorColor: const Color(0xFFE1F5EE),
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.dashboard_outlined),
             selectedIcon: Icon(Icons.dashboard, color: Color(0xFF1D9E75)),
             label: 'Dashboard',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.thermostat_outlined),
+            selectedIcon:
+                Icon(Icons.thermostat, color: Color(0xFF1D9E75)),
+            label: 'Temperature',
           ),
           NavigationDestination(
             icon: Icon(Icons.wifi_outlined),
