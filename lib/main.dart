@@ -5,6 +5,7 @@ import 'services/pi_connection_service.dart';
 import 'screens/connection_screen.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/temperature_screen.dart';
+import 'screens/force_plate_screen.dart';
 
 // ─────────────────────────────────────────
 // ONE FLAG — flip to false when Pi is ready
@@ -62,6 +63,7 @@ class _AppShellState extends State<AppShell> {
   static const _screens = [
     DashboardScreen(),
     TemperatureScreen(),
+    ForcePlateScreen(),
     ConnectionScreen(),
   ];
 
@@ -84,9 +86,14 @@ class _AppShellState extends State<AppShell> {
           ),
           NavigationDestination(
             icon: Icon(Icons.thermostat_outlined),
+            selectedIcon: Icon(Icons.thermostat, color: Color(0xFF1D9E75)),
+            label: 'Temp',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.monitor_weight_outlined),
             selectedIcon:
-                Icon(Icons.thermostat, color: Color(0xFF1D9E75)),
-            label: 'Temperature',
+                Icon(Icons.monitor_weight, color: Color(0xFF1D9E75)),
+            label: 'Force',
           ),
           NavigationDestination(
             icon: Icon(Icons.wifi_outlined),
